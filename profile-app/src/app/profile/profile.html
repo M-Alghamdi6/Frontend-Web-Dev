@@ -1,1 +1,20 @@
-<p>profile works!</p>
+<header>
+  <h1>THIS IS MY PROFILE</h1>
+</header>
+
+<section class="profile-content">
+  <div class="profile-info">
+    <div class="profile-image">
+      <img [src]="profileImageUrl" alt="Profile Image" class="avatar" />
+    </div>
+    <div class="profile-details">
+      <h2>{{ userName }}</h2>
+      <p class="age">Age: {{ age }}</p>
+      <p class="join-date">Member since: {{ joinDate | date:'longDate' }}</p>
+    </div>
+  </div>
+  
+  <button class="welcome-btn" (click)="showWelcomeMessage()">
+    Show Welcome Message
+  </button>
+</section>

@@ -1,1 +1,34 @@
-<p>skill-list works!</p>
+<div class="skill-list-container">
+  <h2>My Skills</h2>
+  
+  <div class="filter-section">
+    <label for="skillFilter">Filter skills:</label>
+    <input 
+      id="skillFilter" 
+      type="text" 
+      [(ngModel)]="filterText" 
+      placeholder="Type to filter skills..." 
+      class="skill-filter"
+    />
+  </div>
+
+  <p class="skills-count">
+    Total skills: {{ skills.length | number }}
+  </p>
+
+  <div *ngIf="filteredSkills.length === 0; else skillsList" class="empty-message">
+    <p>No skills match your filter criteria.</p>
+  </div>
+
+  <ng-template #skillsList>
+    <ul class="skills-list">
+      <li *ngFor="let skill of filteredSkills" class="skill-item">
+        {{ skill }}
+      </li>
+    </ul>
+  </ng-template>
+</div>
+
+<footer>
+  <p>Profile last updated: {{ joinDate | date:'short' }}</p>
+</footer>

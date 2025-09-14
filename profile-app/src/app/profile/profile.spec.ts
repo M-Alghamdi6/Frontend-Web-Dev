@@ -1,23 +1,19 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
-import { Profile } from './profile';
+@Component({
+  selector: 'app-profile',
+  imports: [DatePipe],
+  templateUrl: './profile.html',
+  styleUrl: './profile.scss'
+})
+export class Profile {
+  userName: string = 'Mohammed Alghamdi';
+  age: number = 23;
+  joinDate: Date = new Date('2025-08-31');
+  profileImageUrl: string = 'https://via.placeholder.com/150x150/4CAF50/white?text=Profile';
 
-describe('Profile', () => {
-  let component: Profile;
-  let fixture: ComponentFixture<Profile>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Profile]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(Profile);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  showWelcomeMessage(): void {
+    alert(`Welcome, ${this.userName}! Thanks for joining us.`);
+  }
+}
